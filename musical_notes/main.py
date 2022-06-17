@@ -30,7 +30,7 @@ def smooth_signal(data, times):
     while True:
         # data = np.abs(data)
         filtered = savgol_filter(filteredGust, N, 3)
-        peaks, _ = find_peaks(filtered, distance=6000, height=2000)
+        peaks, _ = find_peaks(filtered, distance=6000, height=15000)
         peaks = np.append(0, peaks)
         peaks = np.append(peaks, len(data) - 1)
         diff = [j - i for i, j in zip(peaks[:-1], peaks[1:])]
